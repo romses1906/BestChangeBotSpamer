@@ -1,0 +1,14 @@
+{
+    "RUB": {
+        "percent": 77.15,
+        "place": 1
+    },
+    "USD": {
+        "percent": 0.5,
+        "place": 3
+    },
+    "USDT": {
+        "percent": 0,
+        "place": 0
+    }
+}

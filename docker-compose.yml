@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  db:
+    container_name: database
+    image: postgres
+    volumes:
+      - ${POSTGRES_DATA_PATH}:/var/lib/postgresql/data
+    restart: always
+    env_file:
+      - ".env"
+    ports:
+      - ${POSTGRES_PORT}:5432
+
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - ${ADMINER_PORT}:8080
+
+  tgbot:
+    container_name: bot
+    build: .
+    volumes:
+      - .:/src
+    command: python main.py
+    restart: always
+    network_mode: "host"
+    env_file:
+      - ".env"
